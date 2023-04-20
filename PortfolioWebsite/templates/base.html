@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<title>{% block title %}{% endblock title %}</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><h4>SANDIP</h4></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/"><h4>Home</h4></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <h4>Gallery</h4>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/myclick"><h5>Clicks</h5></a></li>
+                <li><a class="dropdown-item" href="/myphoto"><h5>Photos</h5></a></li>
+              </ul>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/project"><h4>Project</h4></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact"><h4>Contact Me</h4></a>
+              </li>
+              
+            </ul>
+            <a href="/logged">
+                {% if request.user.is_anonymous %}
+                <button class="btn btn-outline-success" type="button"><h4>Sign In/Sign Up</h4></button>
+                {% else %}
+                <button class="btn btn-outline-success" type="button"><h4>Profile</h4></button>
+                {% endif %}
+            </a>
+          </div>
+        </div>
+      </nav>
+      <div class="container-fluid mb-auto px-0">
+    {% block body %}{% endblock body %}
+  </div>
+    <div class="container-fluid bg-dark">
+      <footer class="mt-auto d-flex flex-wrap justify-content-between align-items-center border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+          <span class="mb-3 mb-md-0 text-body-secondary text-primary"><h5>Created by Sandip Basak</h5></span>
+        </div>
+    
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-0"><a class="text-body-secondary" href="https://www.facebook.com/sandip.basak.716" target="_blank"><button class="btn" type="button"><i class="fab fa-facebook-square fa-3x text-primary"></i></button></a></li>
+          <li class="ms-0"><a class="text-body-secondary" href="https://www.instagram.com/sandip__basak" target="_blank"><button class="btn" type="button"><i class="fab fa-instagram-square fa-3x text-primary"></i></button></a></li>
+          <li class="ms-0"><a class="text-body-secondary" href="https://github.com/Sandip-Basak" target="_blank"><button class="btn" type="button"><i class="fab fa-github-square fa-3x text-primary"></i></button></a></li>
+          <li class="ms-0"><a class="text-body-secondary" href="mailto:sandipisbrave@gmail.com"><button class="btn" type="button"><i class="fas fa-envelope-square fa-3x text-primary"></i></button></a></li>
+        </ul>
+      </footer>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>

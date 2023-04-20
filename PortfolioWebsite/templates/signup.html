@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Sign Up</title>
+</head>
+<body>
+
+    <div class="container-fluid px-0 my-0 mb-3">
+        <img src="static/form.jpg" class="d-block w-100" alt="...">
+    </div>
+
+    <h1 class="text-center">Create a new Account</h1>
+
+<div class="container w-50 m-auto">
+    <form method="post" action="/signup">
+        {% csrf_token %}
+        <div class="mb-3 form-floating">
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="username">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+        </div>
+        <div class="mb-3 form-floating">
+            <input type="name" class="form-control" id="exampleInputEmail1" name="firstname" aria-describedby="emailHelp" placeholder="firstname">
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+        </div>
+        <div class="mb-3 form-floating">
+            <input type="name" class="form-control" id="exampleInputEmail1" name="lastname" aria-describedby="emailHelp" placeholder="lastname">
+            <label for="exampleInputEmail1" class="form-label">Last Name</label>
+        </div>
+        <div class="mb-3 form-floating">
+            <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="password">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+        </div>
+        <div class="mb-3 form-floating">
+            <input type="password" class="form-control" name="repassword" id="exampleInputPassword1" placeholder="repassword">
+            <label for="exampleInputPassword1" class="form-label">Re-Enter Password</label>
+        </div>
+        <button type="submit" class="btn btn-outline-secondary mb-3">Submit</button>
+      </form>
+</div>
+{% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <strong> {{ message }} </strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  {% endif %}  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>
